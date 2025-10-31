@@ -1,0 +1,43 @@
+{
+  "name": "trainingrequest",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "dependencies": {
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "destinations": true,
+      "spa_process_destination": {
+        "kind": "rest",
+        "credentials": {
+          "destination": "spa_process_destination",
+          "forwardAuthToken": true
+        }
+      },
+      "[production]": {
+        "db": {
+          "kind": "hana-cloud"
+        },
+        "auth": "xsuaa"
+      },
+      "[development]": {
+        "db": {
+          "kind": "sqlite"
+        },
+        "auth": "mocked"
+      }
+    }
+  }
+}

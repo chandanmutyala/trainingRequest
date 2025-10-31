@@ -1,0 +1,50 @@
+@server=http://localhost:4004
+@username=alice
+@password=
+
+
+### Requests
+# @name Requests_GET
+GET {{server}}/odata/v4/training-request/Requests
+Authorization: Basic {{username}}:{{password}}
+
+
+### Requests
+# @name Requests_POST
+POST {{server}}/odata/v4/training-request/Requests
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "30887483-0aa4-4a00-8942-45580b7b6cf0",
+  "employee": "employee-30887483",
+  "title": "title-30887483",
+  "description": "description-30887483",
+  "submittedAt": "2003-10-11T00:00:00.000Z",
+  "status": "Approved",
+  "rejectionReason": "rejectionReason-30887483"
+}
+
+
+### Requests
+# @name Requests_PATCH
+PATCH {{server}}/odata/v4/training-request/Requests/30887483-0aa4-4a34-8942-45580b7b6cfc
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "30887483-0aa4-4a34-8942-45580b7b6cfc",
+  "employee": "employee-30887483",
+  "title": "title-30887483",
+  "description": "description-30887483",
+  "submittedAt": "2003-10-11T00:00:00.000Z",
+  "status": "Approved",
+  "rejectionReason": "rejectionReason-30887483"
+}
+
+
+### Requests
+# @name Requests_DELETE
+DELETE {{server}}/odata/v4/training-request/Requests/30887483-0aa4-4a34-8942-45580b7b6cfc
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
