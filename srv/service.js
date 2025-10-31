@@ -3,6 +3,22 @@ const cds = require('@sap/cds');
 module.exports = cds.service.impl(async function () {
   const { Requests } = this.entities;
 
+
+  this.on('getGreetings', async (req) => {
+    const time = req.data.input;
+
+    if (time < 12) {
+      return 'Good Morning!';
+    } else if (time >= 12 && time < 18) {
+      return 'Good Afternoon!';
+    } else {
+      return 'Good Evening!';
+    }
+  });
+
+
+
+
   this.after('CREATE', 'Requests', async (req) => {
     try {
       const wfAPI = await cds.connect.to('spa_process_destination');
